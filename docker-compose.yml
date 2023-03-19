@@ -41,6 +41,8 @@ services:
       - traefik.enable=true
       - traefik.http.routers.demo-nginx.rule=Host(`demo.localhost`)
 
+
+
   demo-redis:
     container_name: demo-redis-new
     build:
