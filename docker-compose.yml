@@ -10,7 +10,7 @@ networks:
 
 services:
   demo-app:
-    container_name: demo-app
+    container_name: demo-app-new
     build:
       context: ./docker/php
       dockerfile: Dockerfile
@@ -27,7 +27,7 @@ services:
       - demo-network
 
   demo-app-nginx:
-    container_name: demo-app-nginx
+    container_name: demo-app-nginx-new
     build:
       context: ./docker/nginx
     depends_on:
@@ -42,7 +42,7 @@ services:
       - traefik.http.routers.demo-nginx.rule=Host(`demo.localhost`)
 
   demo-redis:
-    container_name: demo-redis
+    container_name: demo-redis-new
     build:
       context: ./docker/redis
     command: redis-server --appendonly yes
@@ -60,7 +60,7 @@ services:
       - traefik.tcp.routers.demo-redis.service=demo-redis
 
   demo-mysql:
-    container_name: demo-mysql
+    container_name: demo-mysql-new
     build:
       context: ./docker/mysql
     volumes:
@@ -79,7 +79,7 @@ services:
       - traefik.tcp.routers.demo-mysql.service=demo-mysql
 
   demo-rabbit:
-    container_name: demo-rabbit
+    container_name: demo-rabbit-new
     build:
       context: ./docker/rmq
     volumes:
@@ -95,7 +95,7 @@ services:
       - traefik.tcp.routers.demo-rabbit.service=demo-rabbit
 
   demo-proxy:
-    container_name: demo-proxy
+    container_name: demo-proxy-new
     image: traefik:v2.5
     command:
       - --providers.docker
