@@ -6,10 +6,25 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-
-                </ul>
+                    @guest
+                        @include('components.login')
+                    @else
+                        <div class="row">
+                            <div class="col">
+                                <p class="text-light">{{Auth::user()->username}}</p>
+                            </div>
+                            <div class="col">
+                                <a class="btn btn-outline-light" href="{{route('logout')}}">Logout</a>
+                            </div>
+                            <div class="col">
+                                <a class="btn btn-outline-light" href="">CreateAd</a>
+                            </div>
+                        </div>
+                    @endguest
             </div>
         </div>
     </nav>
 </header>
+
+
+

@@ -28,7 +28,8 @@
                 @endcan
                 <h2 class="my-3">{{$ad->title}}</h2>
                 <div>
-                    <p class="fs-4 text-secondary">category: {{$ad->user->username}}</p>
+                    <h6 class="text-secondary">Ad by <span class="text-info">{{$ad->user->username}}</span></h6>
+                    <h6 class="text-secondary">Published <span class="text-info">{{$ad->created_at}}</span></h6>
                 </div>
 
                 <div class="row">
@@ -37,5 +38,4 @@
             </div>
         @endforeach
     </div>
-    <a class="m-4 btn btn-info" href="">Create Ad</a>
 @endsection

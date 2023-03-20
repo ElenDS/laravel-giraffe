@@ -11,4 +11,8 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Ad');
     }
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
 }
