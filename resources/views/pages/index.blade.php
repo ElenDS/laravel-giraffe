@@ -17,16 +17,11 @@
                         </div>
 
                         <div class="col-3">
-                            <form method="post" action="/delete/{{$ad->id}}">
-                                <input name="_method" value="delete" type="hidden">
-                                @csrf
-                                <input name="id" value="{{$ad->id}}" type="hidden">
-                                <button type="submit" class="btn btn-outline-info">Delete Ad</button>
-                            </form>
+                            <a href="/delete/{{$ad->id}}" class="btn btn-outline-info">Delete Ad</a>
                         </div>
                     </div>
                 @endcan
-                <h2 class="my-3">{{$ad->title}}</h2>
+                <h2 class="my-3"><a href="/{{$ad->id}}">{{$ad->title}}</a></h2>
                 <div>
                     <h6 class="text-secondary">Ad by <span class="text-info">{{$ad->user->username}}</span></h6>
                     <h6 class="text-secondary">Published <span class="text-info">{{$ad->created_at}}</span></h6>
@@ -37,5 +32,6 @@
                 </div>
             </div>
         @endforeach
+            {{ $ads->links() }}
     </div>
 @endsection

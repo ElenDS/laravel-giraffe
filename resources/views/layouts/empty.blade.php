@@ -3,7 +3,7 @@
 @include('components.head')
 <body>
 @section('header')
-    @include('components.header')
+
 @show
 
 @section('main')

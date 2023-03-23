@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Models;
@@ -11,6 +12,7 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Ad');
     }
+
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = bcrypt($value);
